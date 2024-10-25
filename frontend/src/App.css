@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+@keyframes move {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-5px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spinScale {
+  0% {
+    transform: rotate(0deg) scale(0);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes fadeInLeftToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-10%) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+#root {
+  max-width: 100%;
+  text-align: center;
+}
+
+html, body{
+  background-image: url('/images/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; 
+  overflow-y: auto;
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.ash {
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+  animation: move 3s ease-in-out infinite;
+}
+
+.poke-balls {
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+  animation: spin 3s ease-in-out infinite;
+}
+
+.greetings-card {
+  background-color: rgb(255, 255, 255);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeInLeftToRight 1s ease-in-out, float 1.5s ease-in-out infinite;
+}
+
+.greetings-card h1 {
+  font-family: 'Comic Neue', cursive;
+  font-size: 2.8rem;
+  color: #76a1ff;
+  margin-bottom: 20px;
+}
+
+.greetings-card p {
+  margin: 20px 0;
+  font-size: 1.3rem;
+  color: #e72929;
+  font-family: 'Comic Neue', cursive;
+}
+
+.start-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: #ffd700;
+  color: #333;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.start-button:hover {
+  background-color: #ffcf33;
+  transform: translateY(-5px);
+}
+
+.blur {
+  filter: blur(15px);
+}
+
+.login-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.login-card {
+  background-image: url('/images/login.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  text-align: center;
+  animation: spinScale 0.5s ease-in;
+}
+
+
+.login-card h2 {
+  margin-bottom: 20px;
+}
+
+.login-card input {
+  display: block;
+  width: 80%;
+  padding: 10px;
+  margin: 10px auto;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+.login-card button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-card button:hover {
+  background-color: #45a049;
+}
+
+/* QUIZ LEVELS */
+
+.quiz-levels-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.quiz-levels-container .card {
+  border: 1px solid #ddd;
+  width: 400px;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 100px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.quiz-levels-container .card:hover {
+  transform: scale(1.08);
+} 
+
+.quiz-levels-container h1{
+  font-family: 'Comic Neue', cursive;
+  font-size: 2.8rem;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.quiz-levels-container p{
+  color: rgb(0, 0, 0);
+}
+
+.easy{
+  background-image: url('/images/caterpie.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; 
+}
+
+.medium{
+  background-image: url('/images/pidgeotto1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; 
+}
+
+.hard{
+  background-image: url('/images/charizard.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; 
+}
+
+.advance{
+  background-image: url('/images/mewtwo1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; 
+}
+
+.ash-ready{
+  margin-top: 120px;
+  width: 200px;
+  animation: move 3s ease-in-out infinite;
+}
+
+.ash-dialog {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dialog-box1, .dialog-box2, .dialog-box3 {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 40px;
+  padding: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 250px;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Animation for dialog boxes */
+.dialog-box1 {
+  transform: translate(200px, -200px);
+  right: 0;
+  animation: fadeInOutLoop 15s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.dialog-box2 {
+  transform: translateX(-200px);
+  left: 0;
+  animation: fadeInOutLoop 15s ease-in-out infinite;
+  animation-delay: 5s;
+}
+
+.dialog-box3 {
+  transform: translateX(200px);
+  right: 0;
+  animation: fadeInOutLoop 15s ease-in-out infinite;
+  animation-delay: 10s;
+}
+
+@keyframes fadeInOutLoop {
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 40% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Loading screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.pikachu-animation {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: url('/images/pikachu.gif') no-repeat center center;
+  background-size: contain;
+  animation: pikachuRun 3s linear infinite;
+  z-index: 1000;
+}
+
+@keyframes pikachuRun {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 50vw;
+  }
+}
+
+.loading-screen p {
+  position: absolute;
+  bottom: 45%;
+  color: #fff;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px #000;
+}
+
+/* Quizzes */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.quiz-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: float 2s ease-in-out infinite;
+}
+
+.options-list {
+  list-style: none;
+  padding: 0;
+}
+
+.option-item {
+  padding: 10px 15px;
+  margin: 8px 0;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.option-item:hover {
+  background-color: #fce042;
+}
+
+.option-item.correct {
+  background-color: rgb(68, 206, 68);
+  color: white;
+}
+
+.option-item.wrong {
+  background-color: rgb(235, 98, 98);
+  color: white;
+}
+
+.quiz-images {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 30px;
+}
+
+.ash-image {
+  width: auto;
+  height: auto;
+  max-height: 500px;
+  max-width: 400px;
+  margin-top: -2%;
+  position: absolute;
+  left: 10%;
+  height: auto;
+  animation: move 2s ease-in-out infinite;
+}
+
+.category-image{
+  width: auto;
+  height: auto;
+  max-height: 350px;
+  max-width: 400px;
+  margin-top: 6%;
+  position: absolute;
+  right: 8%;
+  animation: move 2s ease-in-out infinite;
+}
+
+.pikachu-fight{
+  width: auto;
+  height: auto;
+  max-height: 100px;
+  max-width: 100px;
+  position: absolute;
+  top: 76%;
+  animation: float 1s ease-in-out infinite;
+}
+
+.dialog {
+  position: absolute;
+  top: 50%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10; /* Ensure it's on top */
+}
+
+.completion-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.952);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-image: url('/images/better-luck.gif');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content button{
+  background-color: #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
