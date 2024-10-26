@@ -24,6 +24,16 @@ const QuizPage = ({ category }) => {
   }, []);
 
   useEffect(() => {
+    // Apply the category-based background class to the body element
+    document.body.classList.add(category);
+
+    // Remove the background class when the component unmounts
+    return () => {
+      document.body.classList.remove(category);
+    };
+  }, [category]);
+
+  useEffect(() => {
     const fetchQuiz = async () => {
       const token = localStorage.getItem('token');
       if (!token) return;
@@ -175,10 +185,10 @@ const QuizPage = ({ category }) => {
       {showCompletionModal && (
         <div className="completion-modal">
           <div className="modal-content">
-          <h2>{passed ? "We've made it!" : 'Better luck next time!'}</h2>
-          <p>You got {correctAnswersCount} out of 10 correct answers.</p>
-          <button onClick={() => navigate('/quiz-levels')}>Close</button>
-        </div>
+            <h2>{passed ? "We've made it!" : 'Better luck next time!'}</h2>
+            <p>You got {correctAnswersCount} out of 10 correct answers.</p>
+            <button onClick={() => navigate('/quiz-levels')}>Close</button>
+          </div>
         </div>
       )}
     </div>

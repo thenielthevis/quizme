@@ -24,7 +24,9 @@ const Home = () => {
         password,
       });
       localStorage.setItem('token', response.data.token);
-      localStorage.setItem('id', response.data.id);
+      localStorage.setItem('id', response.data.user.id);
+      localStorage.setItem('fullName', response.data.user.fullName);
+
       setMessage('Login successful!');
       navigate('/quiz-levels'); // Redirect after successful login
     } catch (error) {

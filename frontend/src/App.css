@@ -49,13 +49,94 @@
   text-align: center;
 }
 
-html, body{
+body {
   background-image: url('/images/bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed; 
   overflow-y: auto;
+}
+
+body.easy {
+  background-image: url('/images/bg.jpg');
+}
+
+body.medium {
+  background-image: url('/images/bg-2.jpg');
+}
+
+body.hard {
+  background-image: url('/images/bg-3.jpg');
+}
+
+body.advance {
+  background-image: url('/images/bg-4.jpg');
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #ddd;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: 8px;
+  border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .home-container {
@@ -476,4 +557,71 @@ html, body{
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+
+/* SCIENCE */ 
+
+.content {
+  padding: 20px;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.topics {
+  margin-bottom: 30px;
+}
+
+.topic-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.topic-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.topic-card:hover {
+  transform: scale(1.05);
+}
+
+.learn-more {
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.learn-more:hover {
+  background: #45a049;
+}
+
+.fun-facts {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  background: #4caf50;
+  color: #fff;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
