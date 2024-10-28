@@ -13,21 +13,18 @@ const QuizPage = ({ category }) => {
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [showCompletionModal, setShowCompletionModal] = useState(false);
   const [passed, setPassed] = useState(false);
-  const [userId, setUserId] = useState(null); // Initialize as null
-  const [completedLevels, setCompletedLevels] = useState([]); // For user's completed levels
-  const [unlockedLevels, setUnlockedLevels] = useState([]); // For user's unlocked levels
+  const [userId, setUserId] = useState(null);
+  const [completedLevels, setCompletedLevels] = useState([]);
+  const [unlockedLevels, setUnlockedLevels] = useState([]);
 
   useEffect(() => {
-    // Retrieve userId from localStorage when component mounts
     const id = localStorage.getItem('id');
     setUserId(id);
   }, []);
 
   useEffect(() => {
-    // Apply the category-based background class to the body element
     document.body.classList.add(category);
 
-    // Remove the background class when the component unmounts
     return () => {
       document.body.classList.remove(category);
     };
@@ -52,7 +49,6 @@ const QuizPage = ({ category }) => {
     fetchQuiz();
   }, [category]);
 
-  // Fetch user data when userId is available
   useEffect(() => {
     const fetchUserData = async () => {
       if (!userId) return;
@@ -117,18 +113,17 @@ const QuizPage = ({ category }) => {
   };
 
   const updateUserLevels = async () => {
-    if (!userId) return; // Ensure userId is available
+    if (!userId) return;
 
     const completedLevelMap = {
       easy: 'medium',
       medium: 'hard',
       hard: 'advance',
-      advance: null, // No more levels to unlock
+      advance: null,
     };
 
     const newLevel = completedLevelMap[category];
     
-    // Prepare the data to update the user
     const updatedData = {
       completedLevels: [...new Set([...completedLevels, category])],
       unlockedLevels: newLevel ? [...new Set([...unlockedLevels, newLevel])] : unlockedLevels,
@@ -146,7 +141,7 @@ const QuizPage = ({ category }) => {
 
   useEffect(() => {
     if (showCompletionModal) {
-      updateUserLevels(); // Call the function to update user levels when modal is shown
+      updateUserLevels();
     }
   }, [showCompletionModal]);
 

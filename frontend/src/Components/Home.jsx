@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -10,7 +10,7 @@ const Home = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleStartClick = () => {
     setShowLogin(true);
@@ -28,7 +28,7 @@ const Home = () => {
       localStorage.setItem('fullName', response.data.user.fullName);
 
       setMessage('Login successful!');
-      navigate('/quiz-levels'); // Redirect after successful login
+      navigate('/quiz-levels');
     } catch (error) {
       setMessage(error.response.data.error);
     }
@@ -44,7 +44,7 @@ const Home = () => {
         password,
       });
       setMessage(response.data.message);
-      setIsLoginMode(true); // Switch to login mode after successful registration
+      setIsLoginMode(true);
     } catch (error) {
       setMessage(error.response.data.error);
     }

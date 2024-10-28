@@ -3,23 +3,23 @@ import { useNavigate } from 'react-router-dom';
 
 const QuizLevels = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [loadingMessage, setLoadingMessage] = useState(''); // Set custom messages for different levels
+  const [loadingMessage, setLoadingMessage] = useState('');
   const navigate = useNavigate();
 
   const handleCardClick = (level, message) => {
     setIsLoading(true);
-    setLoadingMessage(message); // Custom message for each quiz level
+    setLoadingMessage(message);
     setTimeout(() => {
-      navigate(`/quiz/${level}`); // Dynamic navigation based on clicked level
-    }, 3000); // 3 seconds for animation effect
+      navigate(`/quiz/${level}`);
+    }, 3000);
   };
 
   return (
     <div className="quiz-levels-container">
       {isLoading && (
         <div className="loading-screen">
-          <div className="pikachu-animation"></div> {/* Pikachu running animation */}
-          <p>{loadingMessage}</p> {/* Display loading message */}
+          <div className="pikachu-animation"></div> {}
+          <p>{loadingMessage}</p> {}
         </div>
       )}
       {!isLoading && (
